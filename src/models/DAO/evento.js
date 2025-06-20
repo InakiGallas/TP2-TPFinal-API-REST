@@ -1,4 +1,4 @@
-import MongoConnection from "../MongoConnection.js";
+import MongoConnection from "../connection.js";
 import { ObjectId } from "mongodb";
 
 class EventoModel {
