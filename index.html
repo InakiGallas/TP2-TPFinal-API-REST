@@ -1,0 +1,101 @@
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP2 - Panel de Eventos</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    </head>
+    <body>
+  <nav style="margin-bottom: 20px;">
+    <button onclick="mostrarSeccion('eventos')">Eventos</button>
+    <button onclick="mostrarSeccion('participantes')">Participantes</button>
+  </nav>
+
+  <h1>Gestor de Eventos - TP2</h1>
+
+  <!-- SECCIÓN EVENTOS -->
+  <section id="seccion-eventos" style="display: block;">
+    <h2>Eventos</h2>
+
+    <h3>Crear evento</h3>
+    <input type="text" id="titulo" placeholder="Nombre del evento">
+    <input type="text" id="fecha" placeholder="Fecha (YYYY-MM-DD)">
+    <input type="text" id="lugar" placeholder="Lugar">
+    <button onclick="crearEvento()">Crear</button>
+    <hr>
+    <h3>Lista de eventos</h3>
+    <button onclick="obtenerEventos()">Cargar eventos</button>
+    <table>
+      <thead>
+        <tr>
+          <th>Título</th>
+          <th>Fecha</th>
+          <th>Lugar</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="tabla-eventos"></tbody>
+    </table>
+  </section>
+
+  <!-- Modal para editar evento -->
+  <div class="modal" id="modal-editar">
+    <div class="modal-contenido">
+      <h3>Editar evento</h3>
+      <input type="text" id="edit-titulo" placeholder="Título" />
+      <input type="date" id="edit-fecha" />
+      <input type="text" id="edit-lugar" placeholder="Lugar" />
+      <button onclick="confirmarEdicion()">Guardar</button>
+      <button onclick="cerrarModal()">Cancelar</button>
+    </div>
+  </div>
+
+  <!-- SECCIÓN PARTICIPANTES -->
+  <section id="seccion-participantes" style="display: none;">
+    <h2>Participantes</h2>
+
+    <h3>Crear participante</h3>
+    <div id="crear-participante-container">
+        <input type="text" id="nombreParticipante" placeholder="Nombre completo">
+        <input type="email" id="emailParticipante" placeholder="Email">
+        <select id="eventoParticipante">
+            <option value="">Seleccione un evento</option>
+        </select>
+        
+    </div>
+    <button onclick="crearParticipante()">Crear</button>
+    <hr>
+    <h3>Lista de participantes</h3>
+    <button onclick="obtenerParticipantes()">Cargar participantes</button>
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Evento</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="tabla-participantes"></tbody>
+    </table>
+  </section>
+
+  <!-- Modal para editar participante -->
+  <div class="modal" id="modal-editar-participante">
+    <div class="modal-contenido">
+      <h3>Editar participante</h3>
+      <input type="text" id="edit-nombreParticipante" placeholder="Nombre completo" />
+      <input type="email" id="edit-emailParticipante" placeholder="Email" />
+      <select id="edit-eventoParticipante">
+        <option value="">Seleccione un evento</option>
+      </select>
+      <button onclick="confirmarEdicionParticipante()">Guardar</button>
+      <button onclick="cerrarModalParticipante()">Cancelar</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+    </html>
