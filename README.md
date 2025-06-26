@@ -124,6 +124,6 @@ Servidor corriendo en http://localhost:8000
 ## ✍️ Autores
 
 - Iñaki Gallastegui
-- 
-- 
-- 
+- Melany Meichtri
+- Gloria Michelena
+- Juan Villaruel
