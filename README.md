@@ -12,6 +12,9 @@ API RESTful desarrollada con **Node.js**, **Express** y **MongoDB Atlas**, que p
 - Joi (validaciones)
 - Dotenv
 - MongoDB Native Driver (`mongodb`)
+- HTML, Js y Css (Front)
+- CORS
+- Chai, Mocha y SuperTest (tests)
 
 ---
 
@@ -33,10 +36,11 @@ src/
 ├── services/                 # Lógica intermedia de negocio
 │   ├── eventoService.js
 │   └── participanteService.js
+├── test                      # Test con Chai, Mocha y SuperTest
+│   └── integration.test.js
 ├── validations/              # Validaciones con Joi
 │   ├── evento.js
 │   └── participante.js
-│   └── index.js
 ├── index.js                  # Entrada principal de la app
 ```
 
@@ -46,7 +50,7 @@ src/
 
 - Node.js 18+ instalado
 - Tener una cuenta en [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
-- Crear un cluster y un usuario de base de datos
+- Crear un cluster y un usuario de base de datos o Pedir que se agregue tu usuario
 
 ---
 
@@ -55,7 +59,7 @@ src/
 1. Clonar el repositorio:
 
 ```bash
-git clone https://github.com/tu-usuario/tp2-api.git
+git clone https://github.com/InakiGallas/TP2-TPFinal-API-REST.git
 cd tp2-api
 ```
 
@@ -69,7 +73,7 @@ npm install
 
 ```
 PORT=8000
-MONGO_URL=mongodb+srv://<usuario>:<contraseña>@<cluster>.mongodb.net/<base>?retryWrites=true&w=majority&appName=<appName>
+MONGO_URL=mongodb+srv://<usuario>:<contraseña>@taskmanagerdb.pprzr8w.mongodb.net/tp2?retryWrites=true&w=majority&appName=taskManagerDB
 ```
 
 > 🔐 Este archivo **NO debe subirse** al repositorio (está en `.gitignore`).
@@ -79,7 +83,8 @@ MONGO_URL=mongodb+srv://<usuario>:<contraseña>@<cluster>.mongodb.net/<base>?ret
 ## ▶️ Ejecutar el proyecto
 
 ```bash
-npm start
+npm start 
+npm run watch
 ```
 
 Si todo está correcto, verás:
