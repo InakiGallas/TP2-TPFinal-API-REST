@@ -3,6 +3,85 @@ import { expect } from "chai"
 
 const url = supertest("http://localhost:8000")
 
+describe("Test entidad EVENTO", () =>{
+  let eventoId
+
+    it ("GET", async () => {
+        const response = await url.get("/api/eventos")
+
+      //  console.log("Data: ", response)
+
+        expect(response.status).to.equal(200)
+        expect(response.body).to.be.an("array")
+    })
+
+  it ("POST", async () => {
+    const nuevoEvento = {
+      titulo: "Clase de Yoga",
+      fecha: "2025-07-01",
+      lugar: "Gimnasio Central"
+    };
+
+      const response = await url.post("/api/eventos").send(nuevoEvento);
+
+    expect(response.status).to.equal(201);
+   expect(response.body).to.have.property("insertedId").that.is.a("string");
+});
+
+
+     it ("GET x ID conocido", async () => {
+     const idConocido = "68549d34fc7d3700f1dceefc"; 
+
+  const response = await url.get(`/api/eventos/${idConocido}`);
+
+  expect(response.status).to.equal(200);
+  expect(response.body).to.have.property("_id");
+  expect(response.body._id).to.equal(idConocido);
+
+    })
+
+         it ("PATCH - otro nombre", async () => {
+  const response = await url.patch(`/api/eventos/${eventoId}`).send({
+    lugar: "Club Norte"
+  });
+  console.log("Respuesta error PATCH:", response.body); 
+  expect(response.status).to.equal(500);
+  expect(response.body).to.have.property("error");
+
+
+});
+
+         it ("PUT", async () => { 
+      const idFijo = "6854a073fd6062011d23e87e"; 
+
+  const datosActualizados = {
+    titulo: "Nuevo título simple",
+    fecha: "2025-07-10",
+    lugar: "Lugar simple"
+  };
+
+  const response = await url.put(`/api/eventos/${idFijo}`).send(datosActualizados);
+
+  expect(response.status).to.equal(200);
+    })
+         it ("DELETE con POST nuevo", async () => {
+            const nuevoEvento = {
+    titulo: "Evento nuevo",
+    fecha: "2025-07-10",
+    lugar: "Sala Test"
+  };
+
+  const resPost = await url.post("/api/eventos").send(nuevoEvento);
+  expect(resPost.status).to.equal(201);
+  const eventoId = resPost.body.insertedId 
+
+  const resDelete = await url.delete(`/api/eventos/${eventoId}`);
+  console.log("Respuesta DELETE:", resDelete.body);
+
+  expect(resDelete.status).to.equal(200);
+});
+})
+/
 describe("Test entidad participantes", ()=>{
     it("GET PARTICIPANTES",async ()=>{
         const token = "asdas"
@@ -85,3 +164,4 @@ describe("Test entidad participantes", ()=>{
         expect(deleteParticipante.body).to.have.property("deletedCount").equal(1)
     })
 })
+

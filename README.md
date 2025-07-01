@@ -111,7 +111,7 @@ Servidor corriendo en http://localhost:8000
 
 ---
 
-## 🧠 Sobre la arquitectura
+## 🧠 Sobre la arquitectura 
 
 - **DAO (Data Access Object):** Encapsula el acceso a la base de datos.
 - **Factory:** Desacopla la creación del DAO del resto de la aplicación.
@@ -120,6 +120,14 @@ Servidor corriendo en http://localhost:8000
 - **Validaciones:** Uso de Joi para validar la entrada antes de guardar en la base.
 
 ---
+## ✅ Tests 
+
+El proyecto incluye un módulo de tests de integración para verificar que las rutas principales (GET, GET x ID, POST, PATCH, PUT, DELETE) funcionen correctamente tanto para eventos como para participantes. Los tests están hechos con Mocha, Chai y Supertest.
+
+## 🌐 Vista
+
+Esta API REST está pensada para ser consumida por un Frontend que puede estar corriendo en otro puerto o dominio. Para permitir la comunicación entre ambos sin restricciones del navegador, se configuró CORS (Cross-Origin Resource Sharing).
+El proyecto incluye una carpeta con una vista (index.html) para probar la conexión de forma simple. Se recomienda abrirla con Live Server para visualizar los cambios.
 
 ## ✍️ Autores
 

@@ -1,7 +1,8 @@
 import { MongoClient } from "mongodb";
 import dotenv from "dotenv";
 
-dotenv.config();
+dotenv.config(); 
+
 
 class MongoConnection {
   static client = new MongoClient(process.env.MONGO_URL);
