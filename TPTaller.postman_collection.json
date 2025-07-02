@@ -213,6 +213,157 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "/api/eventos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/eventos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"eventos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/eventos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n      \"titulo\": \"Clase de Natacion\",\r\n      \"fecha\": \"2025-07-01\",\r\n      \"lugar\": \"Gimnasio\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/eventos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"eventos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/eventos/:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/eventos/6865550444a904063c0d7516",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"eventos",
+						"6865550444a904063c0d7516"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/eventos/:id",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"lugar\": \"Natatorio\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/eventos/6865550444a904063c0d7516",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"eventos",
+						"6865550444a904063c0d7516"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/eventos/:id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"lugar\": \"Gimnasio\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/eventos/6865550444a904063c0d7516",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"eventos",
+						"6865550444a904063c0d7516"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/eventos/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/eventos/6865550444a904063c0d7516",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"eventos",
+						"6865550444a904063c0d7516"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
