@@ -1,5 +1,7 @@
 import EventoService from "../services/eventoService.js";
 import eventoSchema from "../validations/evento.js";
+import { enviarCorreoListado } from "../services/emailService.js"
+
 
 class EventoController {
     constructor() {
@@ -9,6 +11,8 @@ class EventoController {
     getEventos = async (req, res) => {
         try {
             const eventos = await this.eventoService.getEventos();
+            const email = req.query.email || "destinatario@gmail.com"
+            await enviarCorreoListado(email, eventos)
             res.json(eventos);
         } catch (err) {
             res.status(500).json({ error: "Error al obtener eventos" });

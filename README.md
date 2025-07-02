@@ -15,6 +15,7 @@ API RESTful desarrollada con **Node.js**, **Express** y **MongoDB Atlas**, que p
 - HTML, Js y Css (Front)
 - CORS
 - Chai, Mocha y SuperTest (tests)
+- NodeMailer
 
 ---
 
@@ -74,6 +75,9 @@ npm install
 ```
 PORT=8000
 MONGO_URL=mongodb+srv://<usuario>:<contraseña>@taskmanagerdb.pprzr8w.mongodb.net/tp2?retryWrites=true&w=majority&appName=taskManagerDB
+
+MAIL_USER=jmvillarroel2000@gmail.com
+MAIL_PASS=ugkdjxsmqtsmpkvc
 ```
 
 > 🔐 Este archivo **NO debe subirse** al repositorio (está en `.gitignore`).
@@ -134,9 +138,19 @@ El proyecto incluye un módulo de tests de integración para verificar que las r
 Esta API REST está pensada para ser consumida por un Frontend que puede estar corriendo en otro puerto o dominio. Para permitir la comunicación entre ambos sin restricciones del navegador, se configuró CORS (Cross-Origin Resource Sharing).
 El proyecto incluye una carpeta con una vista (index.html) para probar la conexión de forma simple. Se recomienda abrirla con Live Server para visualizar los cambios.
 
+## 📧 Envío de mail con Nodemailer
+
+El proyecto incluye funcionalidad de envío de mails usando Nodemailer.
+Para probarla localmente, asegurate de tener estas variables en tu archivo .env:
+MAIL_USER=jmvillarroel2000@gmail.com  
+MAIL_PASS=ugkdjxsmqtsmpkvc
+
+🔗 Ruta de prueba desde Postman o navegador:
+GET http://localhost:8000/api/eventos?email=jmvillarroel2000@gmail.com
+
 ## ✍️ Autores
 
 - Iñaki Gallastegui
 - Melany Meichtri
 - Gloria Michelena
-- Juan Villaruel
+- Juan Villaroel
