@@ -11,7 +11,7 @@ class ParticipanteModel {
   };
 
   getparticipantesPorEvento = async (eventoId) => {
-    return await this.db.collection("participantes").find({ eventoId: ObjectId.createFromHexString(eventoId) }).toArray();
+    return await this.db.collection("participantes").find({ eventoId: eventoId }).toArray();
   };
 
   postparticipante = async (nuevo) => {
